@@ -6,19 +6,21 @@
     list-style: none;
 }
 
-// 1. O'zgaruvchilar (Variables) - Figma ranglari
-$primary-color: #a81d33;   // Maketdagi to'q qizil rang
-$text-light: rgba(255, 255, 255, 0.75);
+// Figma o'zgaruvchilari (Variables)
+$primary-red: #a81d33;       // Figma maketidagi asosiy to'q qizil rang
 $white: #ffffff;
+$text-light: rgba(255, 255, 255, 0.75);
 $transition-fast: 0.3s ease;
 
-// 2. Umumiy elementlar uchun nesting
+// 1. Header (Navigatsiya paneli) stillari
 header {
-  background-color: $primary-color;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  background-color: $primary-red;
+  width: 100%;
+  margin: 0;         // Har qanday tashqi masofani nol qilamiz
+  padding: 0;        // Ortiqcha ichki masofani yo'qotamiz
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
 
   .container {
     max-width: 1200px;
@@ -30,7 +32,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 20px 0; // Navbarni Figma o'lchamidek ushlab turadi
 
     .logo {
       cursor: pointer;
@@ -38,12 +40,12 @@ header {
       align-items: center;
       
       img {
-        max-height: 40px; // Logotip hajmi o'zingizga qarab moslaysiz
+        max-height: 45px; // Figma logotipingiz balandligi uchun
         object-fit: contain;
       }
     }
 
-    // Navigatsiya menyusi
+    // Menu, News, About Us, Contact Us linklari
     ul {
       display: flex;
       list-style: none;
@@ -57,13 +59,14 @@ header {
           text-decoration: none;
           font-size: 16px;
           font-weight: 500;
-          padding-bottom: 5px;
+          padding-bottom: 6px;
           transition: all $transition-fast;
           border-bottom: 2px solid transparent;
 
+          // Aktiv sahifa yoki sichqoncha ustiga kelganda ostiga oq chiziq chizish (Figma stili)
           &:hover, &.active {
             color: $white;
-            border-bottom-color: $white; // Figma dizayndagi ostidagi chiziq
+            border-bottom-color: $white;
           }
         }
       }
@@ -74,7 +77,7 @@ header {
       background-color: transparent;
       color: $white;
       border: 1.5px solid $white;
-      padding: 7px 24px;
+      padding: 8px 26px;
       border-radius: 20px;
       font-size: 15px;
       font-weight: 500;
@@ -83,42 +86,33 @@ header {
 
       &:hover, &.active-btn {
         background-color: $white;
-        color: $primary-color;
+        color: $primary-red;
       }
     }
   }
 }
 
-// Sahifalar kontenti uchun stillar
-.page-content {
-  padding: 60px 0;
-  text-align: center;
-
-  h1 {
-    font-size: 32px;
-    color: $primary-color;
-    margin-bottom: 15px;
-  }
-
-  p {
-    font-size: 16px;
-    color: #666;
-  }
-
-  // Sahifadan sahifaga o'tganda silliq paydo bo'lish effekti
-  .page-animation {
-    animation: fadeIn 0.4s ease-in-out forwards;
-  }
+// 2. ORANI YOPUVCHI ASOSIY QISM (Mana shu joy oq bo'shliqni yo'qotadi)
+.main-content {
+  width: 100%;
+  margin: 0;
+  padding: 0;                // Hech qanday padding bo'lmasligi shart!
+  background-color: $primary-red; // Bosh sahifa ochilganda header bilan bir xil rangda birlashadi
+  display: flex;
+  flex-direction: column;
 }
 
-// Animatsiya (Keyframes)
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+// 3. Boshqa ichki sahifalar uchun (News, About, Contact bosilganda oq fonda chiroyli chiqishi uchun)
+.standard-page {
+  background-color: $white;
+  padding: 80px 20px;
+  text-align: center;
+  min-height: 60vh;
+  width: 100%;
+
+  h1 {
+    color: $primary-red;
+    font-size: 32px;
+    margin-bottom: 15px;
   }
 }

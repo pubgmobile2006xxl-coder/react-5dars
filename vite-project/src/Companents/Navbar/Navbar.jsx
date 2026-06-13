@@ -3,10 +3,10 @@ import './Navbar.css';
 import frm from '../img/Frame64.png';
 
 const Navbar = () => {
-  // Qaysi sahifa faolligini saqlash uchun holat (state)
+  // Qaysi oyna (sahifa) faolligini saqlash uchun state
   const [activePage, setActivePage] = useState('menu');
 
-  // Sahifani o'zgartirish funksiyasi
+  // Oynani o'zgartirish funksiyasi
   const handlePageChange = (pageName, e) => {
     e.preventDefault(); // Sahifa qayta yuklanishining oldini oladi
     setActivePage(pageName);
@@ -14,11 +14,12 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Kichik harf bilan header yozildi */}
+      {/* 1. TEPA PANEL (NAVBAR) */}
       <header>
         <div className="container">
           <div className="navbar">
-            {/* Logotip bosilganda bosh sahifaga (menu) qaytadi */}
+            
+            {/* Logotip bosilganda Menu (bosh sahifa) oynasiga qaytadi */}
             <div className="logo" onClick={(e) => handlePageChange('menu', e)} style={{ cursor: 'pointer' }}>
               <img src={frm} alt="Eaturkish Logo" />
             </div>
@@ -72,46 +73,51 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* SAHIFALAR KONTENTI: Qaysi biriga bosilsa, faqat o'sha ko'rinadi */}
+      {/* 2. OYNALAR ALMASHINADIGAN ASOSIY QISM */}
       <main className="page-content">
-        <div className="container">
-          
-          {activePage === 'menu' && (
-            <div className="page-animation">
-              <h1>Bizning Menyu</h1>
-              <p>Bu yerda shirin va mazali turk taomlari ro'yxati chiqadi.</p>
-            </div>
-          )}
+        
+        {/* Menu oynasi faol bo'lsa, Section1 (shashlikli qism) ochiladi */}
 
-          {activePage === 'news' && (
+        {/* News oynasi faol bo'lsa, Yangiliklar oynasi ochiladi */}
+        {activePage === 'news' && (
+          <div className="container">
             <div className="page-animation">
               <h1>Yangiliklar va Chegirmalar</h1>
               <p>Restoranimizdagi eng so'nggi aksiyalar va yangiliklar.</p>
             </div>
-          )}
+          </div>
+        )}
 
-          {activePage === 'about' && (
+        {/* About oynasi faol bo'lsa, Biz haqimizda oynasi ochiladi */}
+        {activePage === 'about' && (
+          <div className="container">
             <div className="page-animation">
               <h1>Biz haqimizda</h1>
               <p>Eaturkish restorani tarixi, maqsadlari va an'analari.</p>
             </div>
-          )}
+          </div>
+        )}
 
-          {activePage === 'contact' && (
+        {/* Contact oynasi faol bo'lsa, Aloqa oynasi ochiladi */}
+        {activePage === 'contact' && (
+          <div className="container">
             <div className="page-animation">
               <h1>Biz bilan bog'lanish</h1>
               <p>Telefon: +998 71 123-45-67 | Manzil: Toshkent shahri</p>
             </div>
-          )}
+          </div>
+        )}
 
-          {activePage === 'login' && (
+        {/* Login oynasi faol bo'lsa, Kirish oynasi ochiladi */}
+        {activePage === 'login' && (
+          <div className="container">
             <div className="page-animation">
               <h1>Tizimga kirish sahifasi</h1>
               <p>Profilingizga kiring va buyurtmalarni boshqaring.</p>
             </div>
-          )}
+          </div>
+        )}
 
-        </div>
       </main>
     </>
   );

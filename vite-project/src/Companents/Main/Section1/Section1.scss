@@ -4,3 +4,185 @@
     box-sizing: border-box;
 }
 
+// 1. O'zgaruvchilar (Variables) - Figma ranglari va shriftlari
+$primary-red: #a81d33;       // Figma maketidagi asosiy to'q qizil fon
+$white: #ffffff;
+$text-transparent: rgba(255, 255, 255, 0.8);
+$font-classic: 'Cormorant Garamond', serif; // Figma'dagi chiroyli klassik font uchun
+$transition-smooth: 0.3s ease;
+
+// 2. Section1 asosiy stillari
+.hero-section {
+  background-color: $primary-red;
+  width: 100%;
+  min-height: calc(100vh - 80px); // Header balandligini chegirib tashlaganda ekranni to'liq egallaydi
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  color: $white;
+
+  .hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+  }
+
+  // Chap tomon: Matnlar qismi (Nesting)
+  .hero-text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    z-index: 5;
+
+    .subtitle {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+      font-family: $font-classic;
+    }
+
+    .main-title {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 25px;
+      font-family: $font-classic;
+      color: $white;
+    }
+
+    .description {
+      font-size: 15px;
+      line-height: 1.6;
+      color: $text-transparent;
+      max-width: 450px;
+      margin-bottom: 35px;
+    }
+
+    // Explore Menu tugmasi
+    .explore-btn {
+      background-color: transparent;
+      color: $white;
+      border: 1.5px solid $white;
+      padding: 12px 36px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all $transition-smooth;
+
+      &:hover {
+        background-color: $white;
+        color: $primary-red;
+      }
+    }
+  }
+
+  // O'ng tomon: Rasm va orqasidagi Group93.png chiziqlari
+  .hero-image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .image-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      // Siz yozgan koddagi grp (Group93.png) - oq nozik chiziqlar
+      .bg-lines {
+        position: absolute;
+        width: 125%; // Shashlik rasmiga nisbatan sal kengroq turishi uchun
+        height: auto;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      // Asosiy shashlik/taom rasmi
+      .dish-img {
+        max-width: 480px;
+        width: 100%;
+        height: auto;
+        z-index: 2;
+        filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.35)); // Haqiqiy soyali effekt
+      }
+    }
+  }
+
+  // Pastki o'ng burchakdagi SCROLL yozuvi va chizig'i
+  .scroll-indicator {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+
+    .line {
+      width: 1px;
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    span {
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      writing-mode: vertical-lr; // Matnni Figma'dagidek tikka holatga keltiradi
+      transform: rotate(180deg);
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+}
+
+// 3. Mobil va Planshetlar uchun moslashuvchanlik (Responsive)
+@media screen and (max-width: 992px) {
+  .hero-section {
+    padding: 60px 0;
+
+    .hero-container {
+      grid-template-columns: 1fr; 
+      flex-direction: column; // Mobil ekranda matn tepada, rasm pastda turadi
+      text-align: center;
+      gap: 50px;
+    }
+
+    .hero-text-content {
+      align-items: center;
+      text-align: center;
+
+      .main-title {
+        font-size: 46px; // Kichik ekranlar uchun shrift o'lchami
+      }
+    }
+
+    .hero-image-content {
+      .image-wrapper {
+        .bg-lines {
+          width: 100%;
+        }
+        .dish-img {
+          max-width: 340px; // Mobil ekranda shashlik rasmini kichraytiramiz
+        }
+      }
+    }
+
+    .scroll-indicator {
+      display: none; // Mobil ekranda scroll indicator shart emas, berkitiladi
+    }
+  }
+}
