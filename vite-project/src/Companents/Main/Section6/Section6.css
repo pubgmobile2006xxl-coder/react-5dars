@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.video-section {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.video-container {
+  width: 100%; /* Ekranning butun kengligi */
+  height: 550px; /* Figma'dagi balandlik */
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  margin-left: calc(-50vw + 50%); /* Sehrli formula: to'liq ekran uchun */
+}
+
+.youtube-iframe,
+.video-cover-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-cover-layer {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease;
+}
+
+.video-cover-layer.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.video-poster {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.dark-layer {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.video-stamp {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 3;
+  animation: spinStamp 30s linear infinite;
+  color: white;
+}
+
+.play-trigger {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1px solid #a81d33;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.play-trigger:hover {
+  transform: scale(1.1);
+}
+
+.play-icon-shape {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 18px solid #ffffff;
+  margin-left: 4px;
+}
+
+@keyframes spinStamp {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media screen and (max-width: 768px) {
+  .video-container {
+    height: 350px;
+  }
+  .video-stamp {
+    display: none;
+  }
+}/*# sourceMappingURL=Section6.css.map */

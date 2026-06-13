@@ -5,6 +5,7 @@ import Section2 from './Companents/Main/Section2/Section2'
 import Section3 from './Companents/Main/Section3/Section3'
 import Section4 from './Companents/Main/Section4/Section4'
 import Section5 from './Companents/Main/Section5/Section5'
+import Section6 from './Companents/Main/Section6/Section6'
 import News from './Companents/News/News'
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
     <Section3></Section3>
     <Section4></Section4>
     <Section5></Section5>
+    <Section6></Section6>
     <News></News>
     </>
   )
