@@ -3,6 +3,7 @@ import Navbar from '../Navbar/Navbar'
 import Section1 from '../Main/Section1/Section1'
 import Section2 from '../Main/Section2/Section2'
 import Section3 from '../Main/Section3/Section3'
+import Section4 from '../Main/Section4/Section4'
 import News from '../News/News'
 
 const Layout = () => {
@@ -12,6 +13,7 @@ const Layout = () => {
     <Section1></Section1>
     <Section2></Section2>
     <Section3></Section3>
+    <Section4></Section4>
     <News></News>
     </>
   )

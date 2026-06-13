@@ -1,0 +1,188 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+// O'zgaruvchilar (Variables)
+$bg-light: #f9f9f9;
+$white: #ffffff;
+$primary-red: #a81d33;
+$text-dark: #222222;
+$text-muted: #666666;
+$text-light: #999999;
+$border-color: #b5b5b5;
+
+.testimony-section {
+  background-color: $bg-light; // Maketdagi och kulrang fon
+  padding: 80px 0 120px 0;
+  position: relative;
+  width: 100%;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  // Sarlavhalar bloki
+  .testimony-header {
+    text-align: center;
+    margin-bottom: 50px;
+
+    .subtitle {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333333;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    // Figma maketidagi chiziqcha
+    .spoon-line {
+      width: 40px;
+      height: 2px;
+      background-color: #333333;
+      margin: 8px auto 15px auto;
+      position: relative;
+    }
+
+    .main-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px;
+      font-weight: 700;
+      color: $text-dark;
+      margin: 0;
+    }
+  }
+
+  // 3 ta kartochka uchun Grid
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  // Har bitta sharh kartochkasi stili
+  .review-card {
+    background-color: $white;
+    border-radius: 10px;
+    padding: 35px 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+
+    .client-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111111;
+      margin: 0 0 15px 0;
+    }
+
+    .client-text {
+      font-size: 14px;
+      color: $text-muted;
+      line-height: 1.6;
+      margin: 0 0 25px 0;
+      height: 90px; // Matnlar bir xil tekislikda turishi uchun
+      overflow: hidden;
+    }
+
+    // Sana va ko'rishlar qatori
+    .card-footer {
+      display: flex;
+      gap: 15px;
+      border-top: 1px solid #f0f0f0;
+      padding-top: 15px;
+
+      .footer-item {
+        font-size: 12px;
+        color: $text-light;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+    }
+  }
+
+  // Slayder boshqaruv tugmalari
+  .testimony-arrows {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+
+    .arrow-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 6px;
+      border: 1px solid $border-color;
+      background-color: transparent;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: #555555;
+      transition: all 0.3s ease;
+
+      // Maketdagi o'ng tomondagi faol qizil tugma stili
+      &.next.active {
+        border-color: $primary-red;
+        color: $primary-red;
+      }
+
+      &:hover {
+        background-color: rgba(168, 29, 51, 0.04);
+      }
+    }
+  }
+
+  // O'ng past burchakdagi aylanma muhr effekti (Stamp)
+  .bite-delight-stamp {
+    position: absolute;
+    right: 18%;
+    bottom: -30px;
+    width: 110px;
+    height: 110px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: spinStamp4 25s linear infinite;
+
+    .stamp-center-icon {
+      position: absolute;
+      font-size: 18px;
+    }
+  }
+}
+
+// Muhr aylanish animatsiyasi
+@keyframes spinStamp4 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// Responsive (Mobil moslashuvchanlik) qismi
+@media screen and (max-width: 992px) {
+  .testimony-section {
+    .reviews-grid {
+      grid-template-columns: repeat(2, 1fr); // Planshetda 2 tadan chiqadi
+    }
+    .bite-delight-stamp {
+      display: none; // Kichik ekranda muhr yashiriladi
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .testimony-section {
+    .reviews-grid {
+      grid-template-columns: 1fr; // Mobilda hammasi bitta qator bo'lib tushadi
+    }
+  }
+}

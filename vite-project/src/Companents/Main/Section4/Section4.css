@@ -1,0 +1,150 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.testimony-section {
+  background-color: #f9f9f9;
+  padding: 80px 0 120px 0;
+  position: relative;
+  width: 100%;
+}
+.testimony-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.testimony-section .testimony-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.testimony-section .testimony-header .subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+  display: block;
+  margin-bottom: 5px;
+}
+.testimony-section .testimony-header .spoon-line {
+  width: 40px;
+  height: 2px;
+  background-color: #333333;
+  margin: 8px auto 15px auto;
+  position: relative;
+}
+.testimony-section .testimony-header .main-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: #222222;
+  margin: 0;
+}
+.testimony-section .reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+.testimony-section .review-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 35px 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+.testimony-section .review-card .client-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 15px 0;
+}
+.testimony-section .review-card .client-text {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0 0 25px 0;
+  height: 90px;
+  overflow: hidden;
+}
+.testimony-section .review-card .card-footer {
+  display: flex;
+  gap: 15px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 15px;
+}
+.testimony-section .review-card .card-footer .footer-item {
+  font-size: 12px;
+  color: #999999;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.testimony-section .testimony-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.testimony-section .testimony-arrows .arrow-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 6px;
+  border: 1px solid #b5b5b5;
+  background-color: transparent;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #555555;
+  transition: all 0.3s ease;
+}
+.testimony-section .testimony-arrows .arrow-btn.next.active {
+  border-color: #a81d33;
+  color: #a81d33;
+}
+.testimony-section .testimony-arrows .arrow-btn:hover {
+  background-color: rgba(168, 29, 51, 0.04);
+}
+.testimony-section .bite-delight-stamp {
+  position: absolute;
+  right: 18%;
+  bottom: -30px;
+  width: 110px;
+  height: 110px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spinStamp4 25s linear infinite;
+}
+.testimony-section .bite-delight-stamp .stamp-center-icon {
+  position: absolute;
+  font-size: 18px;
+}
+
+@keyframes spinStamp4 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media screen and (max-width: 992px) {
+  .testimony-section .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .testimony-section .bite-delight-stamp {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  .testimony-section .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}/*# sourceMappingURL=Section4.css.map */
