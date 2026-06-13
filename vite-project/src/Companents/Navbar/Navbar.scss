@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+// 1. O'zgaruvchilar (Variables) - Figma ranglari
+$primary-color: #a81d33;   // Maketdagi to'q qizil rang
+$text-light: rgba(255, 255, 255, 0.75);
+$white: #ffffff;
+$transition-fast: 0.3s ease;
+
+// 2. Umumiy elementlar uchun nesting
+header {
+  background-color: $primary-color;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+
+    .logo {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      
+      img {
+        max-height: 40px; // Logotip hajmi o'zingizga qarab moslaysiz
+        object-fit: contain;
+      }
+    }
+
+    // Navigatsiya menyusi
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 35px;
+      margin: 0;
+      padding: 0;
+
+      li {
+        a {
+          color: $text-light;
+          text-decoration: none;
+          font-size: 16px;
+          font-weight: 500;
+          padding-bottom: 5px;
+          transition: all $transition-fast;
+          border-bottom: 2px solid transparent;
+
+          &:hover, &.active {
+            color: $white;
+            border-bottom-color: $white; // Figma dizayndagi ostidagi chiziq
+          }
+        }
+      }
+    }
+
+    // Log In tugmasi
+    button {
+      background-color: transparent;
+      color: $white;
+      border: 1.5px solid $white;
+      padding: 7px 24px;
+      border-radius: 20px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &:hover, &.active-btn {
+        background-color: $white;
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+// Sahifalar kontenti uchun stillar
+.page-content {
+  padding: 60px 0;
+  text-align: center;
+
+  h1 {
+    font-size: 32px;
+    color: $primary-color;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 16px;
+    color: #666;
+  }
+
+  // Sahifadan sahifaga o'tganda silliq paydo bo'lish effekti
+  .page-animation {
+    animation: fadeIn 0.4s ease-in-out forwards;
+  }
+}
+
+// Animatsiya (Keyframes)
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

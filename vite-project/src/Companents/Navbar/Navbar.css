@@ -1,0 +1,99 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+header {
+  background-color: #a81d33;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+header .navbar .logo {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+header .navbar .logo img {
+  max-height: 40px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+header .navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+header .navbar ul li a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 5px;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+header .navbar ul li a:hover, header .navbar ul li a.active {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+header .navbar button {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+  padding: 7px 24px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+header .navbar button:hover, header .navbar button.active-btn {
+  background-color: #ffffff;
+  color: #a81d33;
+}
+
+.page-content {
+  padding: 60px 0;
+  text-align: center;
+}
+.page-content h1 {
+  font-size: 32px;
+  color: #a81d33;
+  margin-bottom: 15px;
+}
+.page-content p {
+  font-size: 16px;
+  color: #666;
+}
+.page-content .page-animation {
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}/*# sourceMappingURL=Navbar.css.map */
