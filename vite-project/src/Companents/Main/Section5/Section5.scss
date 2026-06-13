@@ -1,0 +1,172 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+// Ranglar va shrift o'zgaruvchilari
+$primary-red: #a81d33;
+$text-dark: #222222;
+$text-muted: #666666;
+$text-light: #999999;
+$white: #ffffff;
+
+.news-section {
+  background-color: $white; // Toza oq fon
+  padding: 80px 0 100px 0;
+  width: 100%;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  // Tepadagi sarlavha qismi (News / Gericht Updates)
+  .news-header {
+    text-align: center;
+    margin-bottom: 60px;
+
+    .subtitle {
+      font-size: 18px;
+      font-weight: 600;
+      color: $text-dark;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .spoon-line {
+      width: 40px;
+      height: 2px;
+      background-color: $text-dark;
+      margin: 8px auto 15px auto;
+    }
+
+    .main-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 46px;
+      font-weight: 700;
+      color: $primary-red; // To'q qizil sarlavha
+      margin: 0;
+    }
+  }
+
+  // Grid tizimi (3 ta ustunli karta joylashuvi)
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  // Har bitta yangilik kartasi stili
+  .news-card {
+    background-color: $white;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-6px); // Sichqoncha kelganda sal tepaga ko'tariladi
+    }
+
+    // Rasm konteyneri va tepa burchaklarining yumaloqligi
+    .card-img-wrapper {
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      border-radius: 16px; // Maketdagi rasmlarning yumaloq burchaklari
+
+      .card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // Rasm buzilib cho'zilmasligi uchun
+      }
+    }
+
+    // Kartochka ichki matnlari va paddinglari
+    .card-body {
+      padding: 25px 5px 15px 5px;
+
+      .card-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: $text-dark;
+        line-height: 1.4;
+        margin: 0 0 12px 0;
+      }
+
+      .card-desc {
+        font-size: 14px;
+        color: $text-muted;
+        line-height: 1.6;
+        margin: 0 0 20px 0;
+      }
+
+      // Pastki havola (Read More) va sana qatori
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .read-more-btn {
+          font-size: 14px;
+          font-weight: 700;
+          color: $primary-red; // Read More tugmasi qizil rangda
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+
+        .news-date {
+          font-size: 12px;
+          color: $text-light;
+        }
+      }
+    }
+  }
+
+  // Eng pastdagi markaziy "View More" tugmasi
+  .view-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    .view-more-btn {
+      padding: 12px 28px;
+      border: 1px solid $primary-red; // Nozik qizil hoshiya
+      background-color: transparent;
+      color: $text-dark;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 25px; // Dumaloq chetlar
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $primary-red;
+        color: $white;
+      }
+    }
+  }
+}
+
+// Responsive (Mobil ekranlarga moslashuv)
+@media screen and (max-width: 992px) {
+  .news-section {
+    .news-grid {
+      grid-template-columns: repeat(2, 1fr); // Planshetlarda 2 tadan chiqadi
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .news-section {
+    .news-grid {
+      grid-template-columns: 1fr; // Telefonlarda hammasi ketma-ket 1 qator bo'ladi
+    }
+  }
+}
