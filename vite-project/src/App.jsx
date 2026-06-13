@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './Companents/Navbar/Navbar'
 import Section1 from './Companents/Main/Section1/Section1'
+import Section2 from './Companents/Main/Section2/Section2'
 import News from './Companents/News/News'
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
     <>
     <Navbar></Navbar>
     <Section1></Section1>
+    <Section2></Section2>
     <News></News>
     </>
   )
