@@ -7,6 +7,7 @@ import Section4 from './Companents/Main/Section4/Section4'
 import Section5 from './Companents/Main/Section5/Section5'
 import Section6 from './Companents/Main/Section6/Section6'
 import Section7 from './Companents/Main/Section7/Section7'
+import Footer from './Companents/Footer/Footer'
 import News from './Companents/News/News'
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
     <Section5></Section5>
     <Section6></Section6>
     <Section7></Section7>
+    <Footer></Footer>
     <News></News>
     </>
   )

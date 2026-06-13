@@ -7,20 +7,22 @@ import Section4 from '../Main/Section4/Section4'
 import Section5 from '../Main/Section5/Section5'
 import Section6 from '../Main/Section6/Section6'
 import Section7 from '../Main/Section7/Section7'
+import Footer from '../Footer/Footer'
 import News from '../News/News'
 
 const Layout = () => {
   return (
     <>
-    <Navbar></Navbar>
-    <Section1></Section1>
-    <Section2></Section2>
-    <Section3></Section3>
-    <Section4></Section4>
-    <Section5></Section5>
-    <Section6></Section6>
-    <Section7></Section7>
-    <News></News>
+      <Navbar></Navbar>
+      <Section1></Section1>
+      <Section2></Section2>
+      <Section3></Section3>
+      <Section4></Section4>
+      <Section5></Section5>
+      <Section6></Section6>
+      <Section7></Section7>
+      <Footer></Footer>
+      <News></News>
     </>
   )
 }
