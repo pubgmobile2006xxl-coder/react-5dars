@@ -1,0 +1,116 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.gallery-section {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .gallery-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    // Chapdagi matn qismi
+    .gallery-info {
+      flex: 1;
+
+      .subtitle {
+        color: #a81d33;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        
+        &::after {
+          content: "";
+          width: 30px;
+          height: 1px;
+          background-color: #a81d33;
+        }
+      }
+
+      h2 {
+        font-size: 42px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .desc {
+        color: #777;
+        margin-bottom: 30px;
+        line-height: 1.6;
+        max-width: 400px;
+      }
+
+      .view-more-btn {
+        padding: 12px 30px;
+        border: 1px solid #a81d33;
+        background: transparent;
+        color: #a81d33;
+        cursor: pointer;
+        transition: 0.3s;
+        border-radius: 5px;
+        font-weight: 500;
+
+        &:hover {
+          background: #a81d33;
+          color: #fff;
+        }
+      }
+    }
+
+    // O'ngdagi rasmlar grid qismi
+    .gallery-grid {
+      flex: 1.5;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); // 4 ta rasm ketma-ket
+      gap: 15px;
+
+      .gallery-item {
+        height: 350px; // Figma'dagi balandlikka qarab
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; // Rasmni buzmasdan to'liq qoplaydi
+          transition: transform 0.4s ease;
+        }
+
+        &:hover img {
+          transform: scale(1.05); // Rasmga yaqinlashish effekti
+        }
+      }
+    }
+  }
+}
+
+// Mobil uchun moslashuv
+@media (max-width: 992px) {
+  .gallery-wrapper {
+    flex-direction: column;
+    text-align: center;
+    .gallery-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) ;
+  }
+}

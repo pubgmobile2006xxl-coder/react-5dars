@@ -6,6 +6,7 @@ import Section3 from '../Main/Section3/Section3'
 import Section4 from '../Main/Section4/Section4'
 import Section5 from '../Main/Section5/Section5'
 import Section6 from '../Main/Section6/Section6'
+import Section7 from '../Main/Section7/Section7'
 import News from '../News/News'
 
 const Layout = () => {
@@ -18,6 +19,7 @@ const Layout = () => {
     <Section4></Section4>
     <Section5></Section5>
     <Section6></Section6>
+    <Section7></Section7>
     <News></News>
     </>
   )
